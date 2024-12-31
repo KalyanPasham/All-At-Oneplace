@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { AppBar, Toolbar, Typography, InputBase, Button, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-const categories = ['Travel', 'Food', 'Hot Deals', 'Today\'s Deals', 'Savings'];
+// Updated categories array with "Clothing"
+const categories = ['Travel', 'Food', 'Hot Deals', 'Today\'s Deals', 'Savings', 'Clothing'];
 
 const Header = () => (
     <AppBar position="static" style={{ backgroundColor: '#4CAF50' }}>
@@ -19,6 +19,7 @@ const Header = () => (
                     style={{ color: 'white', marginLeft: 8 }}
                 />
             </Box>
+            {/* Render buttons dynamically from the categories array */}
             {categories.map((category) => (
                 <Button color="inherit" key={category}>{category}</Button>
             ))}
@@ -27,5 +28,3 @@ const Header = () => (
 );
 
 export default Header;
-
-                
