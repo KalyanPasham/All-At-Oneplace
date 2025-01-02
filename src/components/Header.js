@@ -1,17 +1,17 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, InputBase, Button, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
-// Updated categories array with "Clothing"
 const categories = ['Travel', 'Food', 'Hot Deals', 'Today\'s Deals', 'Savings', 'Clothing'];
 
 const Header = () => (
     <AppBar position="static" style={{ backgroundColor: '#4CAF50' }}>
         <Toolbar>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" style={{ flexGrow: 1 }}>
                 Deals Aggregator
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', marginRight: 2 }}>
+            <Box style={{ display: 'flex', alignItems: 'center', marginRight: 2 }}>
                 <SearchIcon />
                 <InputBase
                     placeholder="Search deals…"
@@ -19,9 +19,17 @@ const Header = () => (
                     style={{ color: 'white', marginLeft: 8 }}
                 />
             </Box>
+
+            {/* Use Link for Sign Up */}
+            <Link to="/signup" style={{ textDecoration: 'none' }}>
+                <Button color="inherit">Sign Up</Button>
+            </Link>
+
             {/* Render buttons dynamically from the categories array */}
             {categories.map((category) => (
-                <Button color="inherit" key={category}>{category}</Button>
+                <Button color="inherit" key={category}>
+                    {category}
+                </Button>
             ))}
         </Toolbar>
     </AppBar>
