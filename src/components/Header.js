@@ -8,9 +8,13 @@ const categories = ['Travel', 'Food', 'Hot Deals', 'Today\'s Deals', 'Savings', 
 const Header = () => (
     <AppBar position="static" style={{ backgroundColor: '#4CAF50' }}>
         <Toolbar>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-                Deals Aggregator
-            </Typography>
+            {/* Make "Deals Aggregator" clickable and navigate to the /deals page */}
+            <Link to="/deals" style={{ textDecoration: 'none', flexGrow: 1 }}>
+                <Typography variant="h6" style={{ color: 'white' }}>
+                    Deals Aggregator
+                </Typography>
+            </Link>
+
             <Box style={{ display: 'flex', alignItems: 'center', marginRight: 2 }}>
                 <SearchIcon />
                 <InputBase
@@ -20,9 +24,9 @@ const Header = () => (
                 />
             </Box>
 
-            {/* Use Link for Sign Up */}
-            <Link to="/signup" style={{ textDecoration: 'none' }}>
-                <Button color="inherit">Sign Up</Button>
+            {/* Sign In and Sign Up Links */}
+            <Link to="/signin" style={{ textDecoration: 'none', marginRight: '10px' }}>
+                <Button color="inherit">Sign In</Button>
             </Link>
 
             {/* Render buttons dynamically from the categories array */}

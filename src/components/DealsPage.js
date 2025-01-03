@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Card, CardContent, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-// Import deals from individual brand files
 import unitedDeals from '../brands/united';
 import spiritDeals from '../brands/spirit';
 import greyhoundDeals from '../brands/greyhound';
@@ -15,7 +15,6 @@ import costcoDeals from '../brands/costco';
 import rossDeals from '../brands/ross';
 import HMDeals from "../brands/h&m";
 
-// Combine all deals into one array
 const allDeals = [
     ...unitedDeals,
     ...spiritDeals,
@@ -32,10 +31,8 @@ const allDeals = [
 ];
 
 const DealsPage = () => {
-    // State to handle the selected filter
     const [selectedFilter, setSelectedFilter] = useState('All');
 
-    // Filter deals based on the selected category
     const filteredDeals =
         selectedFilter === 'All'
             ? allDeals
@@ -43,9 +40,15 @@ const DealsPage = () => {
 
     return (
         <div style={{ padding: '20px' }}>
+            {/* Sign In Link */}
+            <p style={{ textAlign: 'right', marginBottom: '20px' }}>
+                <Link to="/signin" style={{ textDecoration: 'none', color: '#4CAF50' }}>
+                    Sign In
+                </Link>
+            </p>
+
             <h1>Today's Deals</h1>
 
-            {/* Filter Buttons */}
             <ButtonGroup
                 variant="contained"
                 aria-label="deal filters"
@@ -63,7 +66,6 @@ const DealsPage = () => {
                 <Button onClick={() => setSelectedFilter('Savings')}>Savings</Button>
             </ButtonGroup>
 
-            {/* Deals List */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
                 {filteredDeals.map((deal) => (
                     <Card key={deal.id} style={{ width: '300px' }}>
